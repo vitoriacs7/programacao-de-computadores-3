@@ -9,3 +9,6 @@ console.log(typeof(logica));
 
 var qualquer;
 console.log(typeof(qualquer));
+
+var n = 2;
+console.log(typeof(n));
