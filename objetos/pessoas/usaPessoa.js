@@ -55,7 +55,7 @@ if (resposta) {
     console.log("CPF vazio");
 }
 
-console.log("==== Objeto PF ====");
+console.log("==== Objeto PJ ====");
 
 const PJ = require('./pessoas/PJ');
 
