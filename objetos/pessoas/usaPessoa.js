@@ -1,6 +1,6 @@
 console.log("==== Objeto Pessoa ====")
 
-const Pessoa = require('./pessoas/Pessoa');
+const Pessoa = require('./pessoas/Pessoa.js');
 
 const x = new Pessoa();
 
@@ -24,7 +24,7 @@ if (resposta) {
 
 console.log("==== Objeto PF ====")
 
-const PF = require('./pessoas/PF');
+const PF = require('./pessoas/PF.js');
 
 const y = new PF ();
 
@@ -57,7 +57,7 @@ if (resposta) {
 
 console.log("==== Objeto PJ ====");
 
-const PJ = require('./pessoas/PJ');
+const PJ = require('./pessoas/PJ.js');
 
 const z = new PJ();
 

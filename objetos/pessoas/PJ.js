@@ -1,4 +1,4 @@
-const Pessoa = require('./Pessoa');
+const Pessoa = require('./Pessoa.js');
 
 class PJ extends Pessoa {
 

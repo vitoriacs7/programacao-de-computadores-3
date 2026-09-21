@@ -1,4 +1,4 @@
-const Aluno = require('./escola/Aluno');
+const Aluno = require('./escola/Aluno.js');
 
 const joao = new Aluno();
 

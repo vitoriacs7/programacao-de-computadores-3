@@ -1,11 +1,13 @@
+const Pessoa = require('./Pessoa.js');
+
 class Aluno extends Pessoa {
     
     #matrícula;
 
     setMatricula(matricula) {
 
-        if (matricula) {
-            this.#matricula = matricula;
+        if (matricula && matricula.lenght >= 6) {
+           this.#matricula = matricula;
             return true;
         } else {
             return false;
@@ -17,3 +19,5 @@ class Aluno extends Pessoa {
     }
 
 }
+
+module.exports = Aluno;

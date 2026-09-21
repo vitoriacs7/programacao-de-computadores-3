@@ -1,4 +1,4 @@
-const CarteiraDigital = require('./carteiraDigital');
+const CarteiraDigital = require('./carteiraDigital.js');
 
 const carteira = new CarteiraDigital();
 

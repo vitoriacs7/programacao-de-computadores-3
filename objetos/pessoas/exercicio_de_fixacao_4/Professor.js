@@ -1,3 +1,5 @@
+const Pessoa = require('./Pessoa.js');
+
 class Professor extends Pessoa {
 
     #disciplina;
@@ -17,3 +19,5 @@ class Professor extends Pessoa {
     }
 
 }
+
+module.exports = Professor;
