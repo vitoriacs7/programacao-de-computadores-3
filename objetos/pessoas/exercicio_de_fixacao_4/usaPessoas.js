@@ -1,4 +1,4 @@
-const readLine = require('readLine/promises');
+const readLine = require('node:readline/promises');
 const { stdin: input, stdout: output } = require('process');
 
 const Pessoa = require('./Pessoa.js');
@@ -6,7 +6,7 @@ const Aluno = require('./Aluno.js');
 const Professor = require('./Professor.js');
 
 async function executarMenu() {
-    const rl = readLine.createInterface({ input, output});
+    const rl = readline.createInterface({ input, output});
     let opcao = '';
 
     while (opcao !== '5') {
@@ -22,7 +22,7 @@ async function executarMenu() {
 
         switch (opcao) {
             case '1':
-                console.log('\n-> Cadastrando Pessoa...');
+                console.log('\n--- Cadastro de Pessoa ---');
                 const nomePessoa = await rl.question('Digite o nome: ');
                 const emailPessoa = await rl.question('Digite o e-mail: ');
 
@@ -32,20 +32,67 @@ async function executarMenu() {
                 if (p.setEmail(emailPessoa)) {
                     console.log('Sucesso: Pessoa cadastrada!')
                 } else {
-                    console.log('Erro: Email inválido!');
+                    console.log('Erro: E-mail inválido!');
                 }
                 break;
             case '2':
-                console.log('\n-> Cadastrando Aluno...');
-                const nomeAluno = await rl.question('Digite o nome do aluno: ');
-                const emailAluno = await rl.question('Digite o e-mail do aluno: ');
-                const matriculaAluno = await rl.quar
+                console.log('\n--- Cadastro de Aluno ---');
+                const nomeAluno = await rl.question('Digite o nome: ');
+                const emailAluno = await rl.question('Digite o e-mail: ');
+                const matriculaAluno = await rl.questions('Digite a matrícula: ');
+
+                const a = new Aluno();
+                a.setNome(nomeAluno);
+
+                if (!a.setEmail(emailAluno)) {
+                    console.log('Erro: E-mail inválido!');
+                    break;
+                }
+
+                if (!a.setMatricula(matriculaAluno)) {
+                    console.log('Erro: Matrícula inválida!');
+                } else {
+                    console.log('Sucesso: Aluno cadastrado!');
+                }
                 break;
             case '3': 
-                console.log('\n-> Cadastrando Professor...');
+                console.log('\n--- Cadastro de Professor ---');
+                const nomeProfessor = await rl.question('Digite o nome: ');
+                const emailProfessor = await rl.question('Digite o e-mail: ');
+                const disciplina = await rl.question('Digite a disciplina: ');
+
+                const prof = new Professor();
+                prof.setNome(nomeProfessor);
+
+                if (!prof.setEmail(emailProfessor)) {
+                    console.log('Erro: E-mail inválido!');
+                    break;
+                }
+
+                if (!prof.setDisciplina(disciplina)) {
+                    console.log('Erro: O professor precisa estar associado a uma disciplina!');
+                } else {
+                    console.log('Sucesso: Professor cadastrado!');
+                }
                 break;
             case '4':
-                console.log('\n-> Listando Dados...');
+                console.log('\n--- Listando Dados Cadastrados ----');
+                  
+                if (typeof p !== 'undefined' && p) {
+                    console.log(`[Pessoa] Nome: ${p.getNome()} | E-mail: ${p.getEmail()}`);
+                }
+
+                if (typeof a !== 'undefined' && a) {
+                    console.log(`[Aluno] Nome: ${a.getNome()} | E-mail: ${a.getEmail()} | Matrícula: ${a.getMatricula()}`);
+                }
+
+                if (typeof prof !== 'undefined' && prof) {
+                    console.log(`[Professor] Nome: ${prof.getNome()} | E-mail: ${prof.getEmail} | Disciplina: ${prof.getDisciplina}`);
+                }
+
+                if ((typeof p === 'undefined' && !p) || (typeof a === 'undefined' || !a) || (typeof prof === 'undefined' && !prof)) {
+                    console.log('Nenhum dado cadastrado!');
+                }
                 break;
             case '5' :
                 console.log('\nSaindo... Até mais!');
@@ -197,14 +244,3 @@ if (resposta) {
 } else {
     console.log("Disciplina inválida");
 }
-
-
-
-
-
-
-
-
-
-
-

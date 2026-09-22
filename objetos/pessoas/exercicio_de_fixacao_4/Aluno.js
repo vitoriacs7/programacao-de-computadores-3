@@ -2,7 +2,7 @@ const Pessoa = require('./Pessoa.js');
 
 class Aluno extends Pessoa {
     
-    #matrícula;
+    #matricula;
 
     setMatricula(matricula) {
 
@@ -15,7 +15,7 @@ class Aluno extends Pessoa {
     }
 
     getMatricula() {
-        return this.#matrícula;
+        return this.#matricula;
     }
 
 }

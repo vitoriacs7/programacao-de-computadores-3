@@ -5,7 +5,7 @@ class PF extends Pessoa {
     #cpf;
 
     setCPF(cpf) {
-        if (cpf) {
+        if (cpf && cpf.lenght === 14) {
             this.#cpf = cpf;
             return true;
         } else {
@@ -19,3 +19,4 @@ class PF extends Pessoa {
 }
 
 module.exports = PF;
+

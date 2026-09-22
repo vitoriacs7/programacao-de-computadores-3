@@ -6,21 +6,14 @@ class PJ extends Pessoa {
 
     setCNPJ(cnpj) {
 
-     if (cnpj) {
-
-        if (cnpj.lenght < 18) {
-            return false;
-        }
-
-        this.#cnpj = cnpj;
-        return true;
-
-        } else {
-
-        return false;
-
+     if (cnpj && cnpj.lenght === 18) {
+           this.#cnpj = cnpj;
+           return true;
+    } else {
+           return false;
         }
     }
+
 
     getCNPJ() {
         return this.#cnpj;
@@ -30,7 +23,7 @@ class PJ extends Pessoa {
 
         if (email !== '') {
 
-            if (email.includes('@')) {
+            if (email.includes('@') && email.endsWith(".com")) {
 
                 super.setEmail(email);
 
@@ -43,5 +36,6 @@ class PJ extends Pessoa {
         }
     }
 }
+
 
 module.exports = PJ;
