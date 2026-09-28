@@ -61,3 +61,5 @@ animal2.listarVeterinarios();
 
 console.log(`O dono do animal ${animal1.getNome()} é: ${animal1.getCliente().getNome()}`);
 console.log(`O prontuário ${prontuario1.getNumero()} pertence ao animal: ${prontuario1.getAnimal().getNome()}`);
+
+// relacionamento entre classes 1:1, 1:N e N:N
